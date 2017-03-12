@@ -41,7 +41,7 @@ public class LoginTests extends TestConfiguration {
         }
 
     @Test
-    public void CorrectLoginTest() throws IOException {
+    public void CorrectLoginTest() {
         LoginPage loginPage = homePage.menu().goToLoginPage();
         AfterLoginPage userbase = loginPage.logIn(usernameFromFile,passwordFromFile);
         Assert.assertTrue(userbase.menu().AccountButtonText().contains("Witaj"));
