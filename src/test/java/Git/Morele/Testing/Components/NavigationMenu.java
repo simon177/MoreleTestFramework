@@ -13,11 +13,15 @@ import org.openqa.selenium.support.PageFactory;
  * Created by simon on 10.03.2017.
  */
 public class NavigationMenu {
+    WebDriver driver;
     @FindBy(how= How.CLASS_NAME, using = "userAccount")
     WebElement accountButton;
-    WebDriver driver;
-    @FindBy(how=How.CLASS_NAME, using = "logout")
+    @FindBy(how = How.XPATH, using = "//li[contains(@class, 'logout')]/a")
     WebElement logoutButton;
+
+
+
+
 
     public NavigationMenu(WebDriver driver) {
         this.driver = driver;
