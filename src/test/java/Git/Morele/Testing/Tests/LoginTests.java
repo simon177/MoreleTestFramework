@@ -1,16 +1,11 @@
 package Git.Morele.Testing.Tests;
 
-import Git.Morele.Testing.Components.NavigationMenu;
 import Git.Morele.Testing.Pages.AfterLoginPage;
-import Git.Morele.Testing.Pages.HomePage;
 import Git.Morele.Testing.Pages.LoginPage;
-import Git.Morele.Testing.Utility.Constant;
-import Git.Morele.Testing.Utility.ExcelFilesHandle;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
+import Git.Morele.Testing.Pages.SearchResultPage;
+
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,7 +16,6 @@ import java.io.IOException;
  * Created by simon on 10.03.2017.
  */
 public class LoginTests extends TestConfiguration {
-    HomePage homePage;
 
     @BeforeClass
     public void runConf() throws IOException {
@@ -31,8 +25,7 @@ public class LoginTests extends TestConfiguration {
 
     @BeforeMethod
     public void runHomepage() {
-        homePage = new HomePage(driver);
-        homePage.goTo();
+        super.goToHompage();
     }
 
     @AfterClass

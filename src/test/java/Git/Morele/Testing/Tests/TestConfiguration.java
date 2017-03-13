@@ -1,5 +1,6 @@
 package Git.Morele.Testing.Tests;
 
+import Git.Morele.Testing.Pages.HomePage;
 import Git.Morele.Testing.Utility.Constant;
 import Git.Morele.Testing.Utility.ExcelFilesHandle;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestConfiguration {
     WebDriver driver;
+    HomePage homePage;
     String usernameFromFile;
     String passwordFromFile;
 
@@ -24,6 +26,11 @@ public class TestConfiguration {
         ExcelFilesHandle.getExcelFile(Constant.CredentialSheetPath,"CredentialsSheet");
         usernameFromFile=ExcelFilesHandle.getData(1,1);
         passwordFromFile=ExcelFilesHandle.getData(1,2);
+    }
+
+    public void goToHompage() {
+        homePage = new HomePage(driver);
+        homePage.goTo();
     }
 
 }
