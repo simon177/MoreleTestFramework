@@ -1,7 +1,9 @@
 package Git.Morele.Testing.Tests;
 
+import Git.Morele.Testing.Pages.ConfirmationPage;
 import Git.Morele.Testing.Pages.SearchResultPage;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -33,7 +35,9 @@ public class CartTest extends TestConfiguration {
     @Test
     public void addingToAcartTest(){
         SearchResultPage resultPage = homePage.menu().searchFor("Intel Core i5", "Komputery");
-        resultPage.addToCart();
-
+        String title = resultPage.getElementTitle();
+        ConfirmationPage confirm = resultPage.addToCart();
+        System.out.println(confirm.getConfirmText());
+        Assert.assertTrue(confirm.getConfirmText().contains("dodano do koszyka")&&confirm.getConfirmText().contains(title));
     }
 }

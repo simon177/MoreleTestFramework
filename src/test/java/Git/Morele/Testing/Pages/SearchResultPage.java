@@ -13,8 +13,10 @@ import javax.naming.directory.SearchResult;
  * Created by simon on 13.03.2017.
  */
 public class SearchResultPage extends BasePage {
-    @FindBy(how = How.XPATH, using = "//a[contains(@href, '/basket/add/584122')]")
-    WebElement searchElement;
+    @FindBy(how = How.XPATH, using = "(//div[@class='addToBasket']/a)[1]")
+    WebElement addFirstToBasket;
+    @FindBy(how = How.XPATH, using = "(//div[contains(@class, 'full-name hidden-xs')]/a)[1]")
+    WebElement firstElTitle;
     public SearchResultPage(WebDriver driver){
         super.driver = driver;
         PageFactory.initElements(driver,this);
@@ -23,9 +25,13 @@ public class SearchResultPage extends BasePage {
         return new NavigationMenu(driver);
     }
 
-    public SearchResultPage addToCart(){
-        searchElement.click();
-        return new SearchResultPage(driver);
+    public ConfirmationPage addToCart(){
+        addFirstToBasket.click();
+        return new ConfirmationPage(driver);
+    }
+
+    public String getElementTitle(){
+        return firstElTitle.getText();
     }
 
 

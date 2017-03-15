@@ -72,7 +72,6 @@ public class NavigationMenu {
 
     public void dropdownHandler(String section){
         for(int i=0; i<webElementList.size();i++){
-            System.out.println(webElementList.get(i).getText());
             if (webElementList.get(i).getText().equals(section)){
                 String choice = webElementList.get(i).getAttribute("data-value");
                 driver.findElement(By.xpath("//div[contains(@class,'list')]/ul/li[contains(@data-value, '"+choice+"')]")).click();
