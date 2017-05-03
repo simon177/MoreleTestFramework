@@ -30,6 +30,12 @@ public class SearchResultPage extends BasePage {
         return new ConfirmationPage(driver);
     }
 
+    public ProductPage clickFirstElement(){
+        firstElTitle.click();
+        return new ProductPage(driver);
+    }
+
+
     public String getElementTitle(){
         return firstElTitle.getText();
     }
